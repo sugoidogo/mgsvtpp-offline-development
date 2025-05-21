@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Zeta Take Me Offline" Version="1.0.0" Author="SugoiDogo" Website="">
+  <MGSVersion Version="1.0.15.3" />
+  <SBVersion Version="0.0.0.0" />
+  <Description>Enables offline usage of all items</Description>
+  <QarEntries />
+  <FpkEntries />
+  <FileEntries />
+  <WmvEntries />
+</ModEntry>

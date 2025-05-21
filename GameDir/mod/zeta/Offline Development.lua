@@ -1,0 +1,1 @@
+D:/SteamLibrary/steamapps/common/MGS_TPP/mod/zeta/TakeMeOffline.lua
