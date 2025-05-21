@@ -7,3 +7,6 @@ This mod enables online-only items for offline development and changes developme
 
 - All items have their level requirements changed to max out at level 61 for grade 15 gear, which is the level reached with 100 S-rank crew in each department.
 - Online items which don't normally have proper development requirements set by the game for offline mode have been given costs calculated based on their equipment grade.
+
+![REVNOV-ICKX](screenshot.png)
+![DM GENERATOR](screenshot2.png)
