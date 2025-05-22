@@ -34,7 +34,7 @@ function this.EquipDevelopFlowSettingEntry(entry)
         entry[gmpUsage]=entry[gmp]/100
     end
     -- these are online items, so give them high but reachable costs
-    if entry[gmp] or entry[gmp] > 5e6 then
+    if entry[gmp] == 100 or entry[gmp] > 5e6 then
         entry[gmp]=3e5*entry[grade]
         entry[gmpUsage]=entry[gmp]/100
         entry[resource1]=2e3*entry[grade]
