@@ -27,7 +27,7 @@ function this.EquipDevelopFlowSettingEntry(entry)
     entry[level1]=4*(entry[grade]-1)+1
     entry[level2]=4*(entry[grade]-1)+1
     -- these are grade 1 cosmetic handguns, copy burkov costs
-    if entry[gmp] == 0 then
+    if entry[gmp] == 0 and entry[gmpUsage] ~= 100 then
         entry[gmp]=2e4
         entry[gmpUsage]=entry[gmp]/100
     end
