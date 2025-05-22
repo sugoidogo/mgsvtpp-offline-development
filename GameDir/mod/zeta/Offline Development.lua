@@ -20,19 +20,21 @@ local gmp='p53'
 local grade='p52'
 
 function this.EquipDevelopFlowSettingEntry(entry)
-    -- enable all equipment offline
-    entry[onlineOnly]=0
+    -- don't modify the drugs in zeta r22, it causes crashes
+    local const=ZetaEquipDevelopFlowSetting.FlowToConst(entry)
+    if entry[onlineOnly] == 1 and const[type] ~= TppMbDev.EQP_DEV_TYPE_Equip or ZetaDef.modVersion > 22 then
     -- new level requirements max out at level 61 (100 S rank soldiers per unit)
-    entry[level]=4*(entry[grade]-1)+1
-    entry[level1]=4*(entry[grade]-1)+1
-    entry[level2]=4*(entry[grade]-1)+1
+        entry[level]=4*(entry[grade]-1)+1
+        entry[level1]=4*(entry[grade]-1)+1
+        entry[level2]=4*(entry[grade]-1)+1
+    end
     -- these are grade 1 cosmetic handguns, copy burkov costs
     if entry[gmp] == 0 and entry[gmpUsage] ~= 100 then
         entry[gmp]=2e4
         entry[gmpUsage]=entry[gmp]/100
     end
     -- these are online items, so give them high but reachable costs
-    if entry[gmp] == 100 or entry[gmp] > 5e6 then
+    if (entry[gmp] == 100 and ZetaDef.modVersion > 22) or entry[gmp] > 5e6 then
         entry[gmp]=3e5*entry[grade]
         entry[gmpUsage]=entry[gmp]/100
         entry[resource1]=2e3*entry[grade]
@@ -40,6 +42,8 @@ function this.EquipDevelopFlowSettingEntry(entry)
         entry[resource2]=2e3*entry[grade]
         entry[resource2Usage]=entry[resource2]/10
     end
+    -- enable all equipment offline
+    entry[onlineOnly]=0
 end
 
 return this
