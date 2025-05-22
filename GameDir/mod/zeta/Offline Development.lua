@@ -22,7 +22,7 @@ local grade='p52'
 function this.EquipDevelopFlowSettingEntry(entry)
     -- don't modify the drugs in zeta r22, it causes crashes
     local const=ZetaEquipDevelopFlowSetting.FlowToConst(entry)
-    if entry[onlineOnly] == 1 and const[type] ~= TppMbDev.EQP_DEV_TYPE_Equip or ZetaDef.modVersion > 22 then
+    if ZetaDef.modVersion > 22 or entry[onlineOnly] == 1 or const[type] ~= TppMbDev.EQP_DEV_TYPE_Equip then
     -- new level requirements max out at level 61 (100 S rank soldiers per unit)
         entry[level]=4*(entry[grade]-1)+1
         entry[level1]=4*(entry[grade]-1)+1
