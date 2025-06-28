@@ -18,6 +18,7 @@ local level='p55'
 local gmpUsage='p54'
 local gmp='p53'
 local grade='p52'
+local type='p02'
 
 function this.EquipDevelopFlowSettingEntry(entry)
     -- don't modify the drugs in zeta r22, it causes crashes
