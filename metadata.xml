@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ModEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Offline Development (Zeta)" Version="1.1.2" Author="SugoiDogo" Website="https://github.com/sugoidogo/mgsvtpp-offline-development">
+<ModEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Offline Development (Zeta)" Version="2.0.0" Author="SugoiDogo" Website="https://github.com/sugoidogo/mgsvtpp-offline-development">
   <MGSVersion Version="1.0.15.3" />
   <SBVersion Version="0.0.0.0" />
   <Description>This mod enables online-only items for offline development and changes development requirements to better match an offline mode playthrough.
 
 - All items have their level requirements changed to max out at level 61 for grade 15 gear, which is the level reached with 100 S-rank crew in each department.
-- Online items which don't normally have proper development requirements set by the game for offline mode have been given costs calculated based on their equipment grade.
-- Plant Development Costs have been re-calculated to stay under the offline maximum of 6k</Description>
+- Items which don't normally have proper GMP requirements set by the game have been given GMP costs calculated based on their equipment grade.
+- All costs have been proportionally reduced to be accessible from offline mode without changing the relative cost progression
+- All items now take 5 minutes per grade to develop starting at grade 2, to prevent progressing too quickly through the early development tree and to account for the lack of online development timers</Description>
   <QarEntries />
   <FpkEntries />
   <FileEntries />
