@@ -21,6 +21,7 @@ local level = 'p55'
 local gmpUsage = 'p54'
 local gmp = 'p53'
 local grade = 'p52'
+local ID = 'p00'
 local OnlineMaxGMP = 25e6
 local OfflineMaxGMP = 5e6
 local GMPRatio = OfflineMaxGMP / OnlineMaxGMP
@@ -32,8 +33,19 @@ local OfflineMaxPlants = 6e3
 local PlantsRatio = OfflineMaxPlants / OnlineMaxPlants
 local MaxGrade = 15
 local GMPPerGrade = OnlineMaxGMP / MaxGrade
+local StealthCamoID_Grade = {}
+StealthCamoID_Grade[12040] = 7
+StealthCamoID_Grade[12041] = 8
+StealthCamoID_Grade[12042] = 9
+StealthCamoID_Grade[12043] = 10
+StealthCamoID_Grade[12044] = 11
 
 function this.EquipDevelopFlowSettingEntry(entry)
+    local const = ZetaEquipDevelopFlowSetting.FlowToConst(entry)
+    -- stealth camo is far too low grade by default
+    if StealthCamoID_Grade[const[ID]] ~= nil then
+        entry[grade] = StealthCamoID_Grade[const[ID]]
+    end
     -- new level requirements max out at level 61 (100 S rank soldiers per unit)
     if entry[level] ~= 0 then
         entry[level] = 4 * (entry[grade] - 1) + 1
