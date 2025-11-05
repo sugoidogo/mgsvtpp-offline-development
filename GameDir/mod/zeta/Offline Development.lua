@@ -11,7 +11,9 @@ local minutes='p71'
 local resource2Usage='p68'
 local resource1Usage='p66'
 local level2='p64'
+local resource2Type = 'p60'
 local resource2='p61'
+local resource1Type = 'p58'
 local resource1='p59'
 local level1='p57'
 local level='p55'
@@ -42,6 +44,13 @@ function this.EquipDevelopFlowSettingEntry(entry)
         entry[resource1Usage]=entry[resource1]/10
         entry[resource2]=2e3*entry[grade]
         entry[resource2Usage]=entry[resource2]/10
+    end
+    -- keep plant costs under the game's offline maximum of 6k
+    if entry[resource1Type] and string.sub(entry[resource1Type], 1, 5) == 'Plant' then
+        entry[resource1] = 300 * entry[grade]
+    end
+    if entry[resource2Type] and string.sub(entry[resource2Type], 1, 5) == 'Plant' then
+        entry[resource2] = 300 * entry[grade]
     end
     -- enable all equipment offline
     entry[onlineOnly]=0
