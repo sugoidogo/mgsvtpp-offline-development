@@ -50,6 +50,9 @@ function this.EquipDevelopFlowSettingEntry(entry)
     if entry[gmpUsage] > entry[gmp] then
         entry[gmp] = GMPPerGrade * entry[grade]
         entry[gmpUsage] = entry[gmp] / 100
+        if entry[level] == 0 then
+            entry[level] = 4 * (entry[grade] - 1) + 1
+        end
     end
     -- reduce all costs by the ratio of online max to offline max
     entry[gmp] = entry[gmp] * GMPRatio
