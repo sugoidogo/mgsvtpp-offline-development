@@ -20,28 +20,16 @@ local level = 'p55'
 local gmpUsage = 'p54'
 local gmp = 'p53'
 local grade = 'p52'
-local ID = 'p00'
-local ignoreID = {}
--- Noctocyanin
-ignoreID[13020] = true
-ignoreID[13021] = true
-ignoreID[13022] = true
-ignoreID[13023] = true
-ignoreID[13024] = true
--- Acceleramin
-ignoreID[13030] = true
-ignoreID[13031] = true
-ignoreID[13032] = true
-ignoreID[13033] = true
-ignoreID[13034] = true
 
 function this.EquipDevelopFlowSettingEntry(entry)
-    -- don't modify the drugs in zeta r22, it causes crashes
-    local const = ZetaEquipDevelopFlowSetting.FlowToConst(entry)
-    if ZetaDef.modVersion > 22 or entry[onlineOnly] == 1 or not ignoreID[const[ID]] then
-        -- new level requirements max out at level 61 (100 S rank soldiers per unit)
+    -- new level requirements max out at level 61 (100 S rank soldiers per unit)
+    if entry[level] ~= 0 then
         entry[level] = 4 * (entry[grade] - 1) + 1
+    end
+    if entry[level1] ~= 0 then
         entry[level1] = 4 * (entry[grade] - 1) + 1
+    end
+    if entry[level2] ~= 0 then
         entry[level2] = 4 * (entry[grade] - 1) + 1
     end
     -- these are grade 1 cosmetic handguns, copy burkov costs
